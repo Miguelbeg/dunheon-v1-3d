@@ -1,0 +1,6 @@
+{
+  "name": "Dungeon Crawler 3D",
+  "description": "A first-person roguelike dungeon crawler with procedural levels, combat, and progression.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

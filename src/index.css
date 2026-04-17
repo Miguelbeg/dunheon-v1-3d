@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0a0c;
+  --color-accent: #e63946;
+  --color-ui-bg: rgba(20, 20, 25, 0.85);
+  --color-green: #2ecc71;
+  --color-gold: #f1c40f;
+  
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-white overflow-hidden font-sans;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.8) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.stat-group {
+  @apply bg-ui-bg border border-white/10 p-3 rounded-lg backdrop-blur-md;
+}
+
+.label {
+  @apply text-[10px] uppercase tracking-[0.2em] text-white/50 mb-1;
+}
+
+.value {
+  @apply font-mono text-xl font-bold;
+}
+
+.damage-flash {
+  animation: flash 0.15s ease-out;
+}
+
+@keyframes flash {
+  0% { filter: sepia(1) saturate(20) hue-rotate(-50deg) brightness(0.4); background-color: rgba(255, 0, 0, 0.3); }
+  100% { filter: none; background-color: transparent; }
+}
